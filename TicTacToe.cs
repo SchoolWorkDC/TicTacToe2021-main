@@ -177,10 +177,22 @@ namespace TicTacToe
         // have the same value - doesn't even matter what the value is
         // as long as it's the same!
         
-            for (int rowCount = 0; rowCount < squares.GetUpperBound(0); rowCount++)
+            for (int rowCount = 0; rowCount <= squares.GetUpperBound(0); rowCount++)
             {
                 // What does "GetUpperBound(0)" mean above?
 
+                if (squares[rowCount, 0].Text != String.Empty &&
+                squares[rowCount, 0].Text == squares[rowCount, 1].Text &&
+                squares[rowCount, 0].Text == squares[rowCount, 2].Text)
+                {
+                    isWinner = true;
+                }
+                if (squares[0, rowCount].Text != String.Empty &&
+                squares[0, rowCount].Text == squares[1, rowCount].Text &&
+                squares[0, rowCount].Text == squares[2, rowCount].Text)
+                {
+                    isWinner = true;
+                }
                 // Something to do with squares(rowCount,0), squares(rowCount,1), etc.
                 // How can we analyze the rows to figure out if someone wins?
                 // When someone wins, set isWinner = true;.
